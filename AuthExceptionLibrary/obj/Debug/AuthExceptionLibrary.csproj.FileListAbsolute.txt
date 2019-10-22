@@ -1,0 +1,6 @@
+C:\Users\petr\Desktop\EBookDat\AuthExceptionLibrary\bin\Debug\AuthExceptionLibrary.dll
+C:\Users\petr\Desktop\EBookDat\AuthExceptionLibrary\bin\Debug\AuthExceptionLibrary.pdb
+C:\Users\petr\Desktop\EBookDat\AuthExceptionLibrary\obj\Debug\AuthExceptionLibrary.csproj.CoreCompileInputs.cache
+C:\Users\petr\Desktop\EBookDat\AuthExceptionLibrary\obj\Debug\AuthExceptionLibrary.dll
+C:\Users\petr\Desktop\EBookDat\AuthExceptionLibrary\obj\Debug\AuthExceptionLibrary.pdb
+C:\Users\petr\Desktop\EBookDat\AuthExceptionLibrary\obj\Debug\AuthExceptionLibrary.csprojAssemblyReference.cache

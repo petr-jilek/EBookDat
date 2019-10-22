@@ -1,0 +1,37 @@
+C:\Users\marc.nazarian\Documents\Visual Studio 2013\Projects\BookSearchWS\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+C:\Users\marc.nazarian\Documents\Visual Studio 2013\Projects\BookSearchWS\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+C:\Users\marc.nazarian\Documents\Visual Studio 2013\Projects\BookSearchWS\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+C:\Users\marc.nazarian\Documents\Visual Studio 2013\Projects\BookSearchWS\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+C:\Users\marc.nazarian\Documents\Visual Studio 2013\Projects\BookSearchWS\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb
+C:\Users\marc.nazarian\Documents\Visual Studio 2013\Projects\BookSearchWS\WcfServiceLibrary1\obj\Debug\WcfBookServiceLibrary.csprojResolveAssemblyReference.cache
+D:\_dev_\BookSearchWS\WcfServiceLibrary1\obj\Debug\WcfBookServiceLibrary.csprojResolveAssemblyReference.cache
+D:\_dev_\BookSearchWS\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+D:\_dev_\BookSearchWS\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb
+D:\_dev_\BookSearchWS\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+D:\_dev_\BookSearchWS\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+D:\_dev_\BookSearchWS\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+D:\_dev_\book-finder\WcfServiceLibrary1\bin\Debug\WcfBookServiceLibrary.dll.config
+D:\_dev_\book-finder\WcfServiceLibrary1\bin\Debug\WcfBookServiceLibrary.dll
+D:\_dev_\book-finder\WcfServiceLibrary1\bin\Debug\WcfBookServiceLibrary.pdb
+D:\_dev_\book-finder\WcfServiceLibrary1\obj\Debug\WcfBookServiceLibrary.dll
+D:\_dev_\book-finder\WcfServiceLibrary1\obj\Debug\WcfBookServiceLibrary.pdb
+D:\_dev_\book-finder\WcfBookServiceLibrary\bin\Debug\WcfBookServiceLibrary.dll.config
+D:\_dev_\book-finder\WcfBookServiceLibrary\bin\Debug\WcfBookServiceLibrary.dll
+D:\_dev_\book-finder\WcfBookServiceLibrary\bin\Debug\WcfBookServiceLibrary.pdb
+D:\_dev_\book-finder\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.dll
+D:\_dev_\book-finder\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.pdb
+D:\_dev_\book-finder\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.csprojResolveAssemblyReference.cache
+C:\Users\petr\Desktop\EBookDat\WcfBookServiceLibrary\bin\Debug\WcfBookServiceLibrary.dll.config
+C:\Users\petr\Desktop\EBookDat\WcfBookServiceLibrary\bin\Debug\WcfBookServiceLibrary.dll
+C:\Users\petr\Desktop\EBookDat\WcfBookServiceLibrary\bin\Debug\WcfBookServiceLibrary.pdb
+C:\Users\petr\Desktop\EBookDat\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.csproj.CoreCompileInputs.cache
+C:\Users\petr\Desktop\EBookDat\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.dll
+C:\Users\petr\Desktop\EBookDat\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.pdb
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\bin\Debug\WcfBookServiceLibrary.dll.config
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\bin\Debug\WcfBookServiceLibrary.dll
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\bin\Debug\WcfBookServiceLibrary.pdb
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.csproj.CoreCompileInputs.cache
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.dll
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.pdb
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.csprojAssemblyReference.cache
+C:\Users\petr\Desktop\EBookDat\WcfBookServiceLibrary\obj\Debug\WcfBookServiceLibrary.csprojAssemblyReference.cache

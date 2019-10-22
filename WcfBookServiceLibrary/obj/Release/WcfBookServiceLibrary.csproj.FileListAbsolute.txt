@@ -1,0 +1,7 @@
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\bin\Release\WcfBookServiceLibrary.dll.config
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\bin\Release\WcfBookServiceLibrary.dll
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\bin\Release\WcfBookServiceLibrary.pdb
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\obj\Release\WcfBookServiceLibrary.csprojAssemblyReference.cache
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\obj\Release\WcfBookServiceLibrary.csproj.CoreCompileInputs.cache
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\obj\Release\WcfBookServiceLibrary.dll
+C:\PETR\Programovani\EBookDat\WcfBookServiceLibrary\obj\Release\WcfBookServiceLibrary.pdb
