@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4DF53FA3-582E-4754-8934-494A5F46CA1D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EBookDat</RootNamespace>
+    <AssemblyName>EBookDat</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\petr\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>BC8831A1CDB1CBE883F58D741688D2BDB8C6D733</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>EBookDat_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>mainBookIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controllers\ItemsManagers\EGCManager.cs" />
+    <Compile Include="Models\Clone.cs" />
+    <Compile Include="Models\Collections\EGCcollection.cs" />
+    <Compile Include="Models\Items\EGC.cs" />
+    <Compile Include="View\AddBookWindow.xaml.cs">
+      <DependentUpon>AddBookWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditBookWindow.xaml.cs">
+      <DependentUpon>EditBookWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditEGCWindow.xaml.cs">
+      <DependentUpon>EditEGCWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EGCManagerWindow.xaml.cs">
+      <DependentUpon>EGCManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Collections\BookCollection.cs" />
+    <Compile Include="Controllers\Settings.cs" />
+    <Compile Include="View\ManualWindow.xaml.cs">
+      <DependentUpon>ManualWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\AddBookWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditBookWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditEGCWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EGCManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\FileManagers\AppDataFileManager.cs" />
+    <Compile Include="Controllers\FileManagers\ExcelFileManager.cs" />
+    <Compile Include="Models\Static\InputCheck.cs" />
+    <Compile Include="Models\Items\Book.cs" />
+    <Compile Include="Controllers\ItemsManagers\BookManager.cs" />
+    <Compile Include="Models\Static\CzechAsciiSorter.cs" />
+    <Compile Include="Controllers\Database.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\ManualWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="EBookDat_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\addBookImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\editBookImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_save_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_attachment_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_cloud_download_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_cloud_upload_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_dashboard_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_folder_open_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_create_new_folder_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_language_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\GBflag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\CZflag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_keyboard_arrow_up_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_keyboard_arrow_down_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_sort_by_alpha_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_close_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\baseline_help_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\MainIcons\mainBookIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mainBookIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AuthExceptionLibrary\AuthExceptionLibrary.csproj">
+      <Project>{a523a82f-9c69-46d8-bdaf-ebf2c002cbf0}</Project>
+      <Name>AuthExceptionLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfBookServiceLibrary\WcfBookServiceLibrary.csproj">
+      <Project>{fc9e3527-2dc1-4360-a55b-e42315bf46ce}</Project>
+      <Name>WcfBookServiceLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

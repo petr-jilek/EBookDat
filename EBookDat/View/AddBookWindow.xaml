@@ -1,0 +1,101 @@
+﻿<Window x:Class="EBookDat.View.AddBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EBookDat.View"
+        mc:Ignorable="d"
+        Title="AddBookWindow" Height="500" Width="500">
+
+    <Grid Margin="10">
+
+        <!--Row and Column definition-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="134"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Adding book image-->
+        <Image Source="/Assets/Images/AddBookImage.png" Grid.ColumnSpan="2" Grid.RowSpan="2"  Grid.Column="0" Grid.Row="0" Margin="10,10,10,10"/>
+
+        <!--Title and author TextBoxes-->
+        <StackPanel Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Orientation="Vertical">
+            <TextBlock Text="Název:" FontFamily="Verdana" FontWeight="Bold" Margin="0,20,0,0"/>
+            <TextBox Name="titleTextBox" Margin="0,4,0,0"/>
+
+            <TextBlock Text="Author:" FontFamily="Verdana" FontWeight="Bold" Margin="0,8,0,0"/>
+            <TextBox Name="authorTextBox" Margin="0,4,0,0"/>
+        </StackPanel>
+
+        <!--Edition ComboBox-->
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <TextBlock Text="Edice:" FontFamily="Verdana" FontWeight="Bold" Margin="0,8,5,0"/>
+            <ComboBox Name="editionComboBox" FontFamily="Verdana" Margin="0,4,6,0">
+            </ComboBox>
+        </StackPanel>
+
+        <!--Genre ComboBox-->
+        <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical">
+            <TextBlock Text="Žánr:" FontFamily="Verdana" FontWeight="Bold" Margin="6,8,0,0"/>
+            <ComboBox Name="genreComboBox" FontFamily="Verdana" Margin="6,4,0,0"/>
+        </StackPanel>
+
+        <!--Publish year, publish location and publisher TextBoxes-->
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical">
+            <TextBlock Text="Rok vydaní" FontFamily="Verdana" Margin="0,8,10,0"/>
+            <TextBox Name="publishYearTextBox" Margin="0,4,10,0"/>
+
+            <TextBlock Text="Místo vydání" FontFamily="Verdana" Margin="0,8,10,0"/>
+            <TextBox Name="publishLocationTextBox" Margin="0,4,10,0"/>
+
+            <TextBlock Text="Nakladatelství" FontFamily="Verdana" Margin="0,8,10,0"/>
+            <TextBox Name="publisherTextBox" Margin="0,4,10,0"/>
+        </StackPanel>
+
+        <!--Pages number and note TextBoxes-->
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Orientation="Vertical">
+            <TextBlock Text="Počet stran" FontFamily="Verdana" Margin="10,8,0,0"/>
+            <TextBox Name="pagesNumberTextBox" Margin="10,4,0,0"/>
+
+            <TextBlock Text="Poznámka" FontFamily="Verdana" Margin="10,8,0,0"/>
+            <TextBox Name="noteTextBox" Height="62" TextWrapping="Wrap" Margin="10,4,0,0"/>
+        </StackPanel>
+
+        <!--ISBN TextBox-->
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical">
+            <TextBlock Text="ISBN" FontFamily="Verdana" Margin="0,8,10,0"/>
+            <TextBox Name="isbnTextBox" Margin="0,4,10,0"/>
+        </StackPanel>
+
+        <!--Search book by ISBN button-->
+        <StackPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Button Content="Hledat" Width="100" Height="22" FontFamily="Verdana" HorizontalAlignment="Right" Margin="0,0,0,4" Click="AddIsbnButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical">
+            <TextBlock Text="Fakturační kod" FontFamily="Verdana" Margin="0,8,10,0"/>
+            <TextBox Name="billingNumberTextBox" Margin="0,4,10,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="3" Orientation="Vertical">
+            <TextBlock Text="Společnost:" FontFamily="Verdana" Margin="6,8,0,0"/>
+            <ComboBox Name="companyComboBox" FontFamily="Verdana" Margin="6,3,0,0"/>
+        </StackPanel>
+
+        <!--Add button-->
+        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Panel.ZIndex="1">
+            <Button Content="Přidat knihu" Width="120" Height="30" FontFamily="Verdana" VerticalAlignment="Bottom" Click="AddButton_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

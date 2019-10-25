@@ -1,0 +1,293 @@
+﻿<Window x:Class="EBookDat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tr = "clr-namespace:EBookDat.Properties"
+        xmlns:local="clr-namespace:EBookDat"
+        mc:Ignorable="d"        
+        Title="EBookDat" Height="540" Width="950">
+
+    <Grid Margin="0,0,0,10">
+
+        <!--Row and Column definitions-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="3.25*"/>
+            <ColumnDefinition Width="3.25*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Main top menu-->
+        <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7">
+            <Menu DockPanel.Dock="Top" FontFamily="Verdana">
+
+                <MenuItem Header="Soubor">
+                    <MenuItem Header="Nový" Click="NewMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_create_new_folder_black_18dp.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Zavřít" Click="CloseMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_close_black_18dp.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Uložit" Click="SaveMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_save_black_18dp.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="Data">
+                    <MenuItem Header="Exportovat excel (.csv)" Click="DataExportExcelMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_cloud_upload_black_18dp.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Importovat excel (.csv)" Click="DataImportExcelMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_cloud_download_black_18dp.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="Správce">
+                    <MenuItem Header="Edice" Click="EditEditionsMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_dashboard_black_18dp.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Žánry" Click="EditGenresMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_dashboard_black_18dp.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Sploečnosti" Click="EditCompaniesMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_dashboard_black_18dp.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="Nastavení">
+                    <MenuItem Header="Řazení">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_sort_by_alpha_black_18dp.png" />
+                        </MenuItem.Icon>
+                        <MenuItem Name="ownSortBooksMenuItem" Header="Řazení knih" IsCheckable="True" Click="OwnSortBooksMenuItem_Click">
+                        </MenuItem>
+                        <MenuItem Name="ownSortEditionsMenuItem" Header="Řazení edic" IsCheckable="True" Click="OwnSortEditionsMenuItem_Click">
+                        </MenuItem>
+                        <MenuItem Name="ownSortGenresMenuItem" Header="Řazení žánrů" IsCheckable="True" Click="OwnSortGenresMenuItem_Click">
+                        </MenuItem>
+                        <MenuItem Name="ownSortCompaniesMenuItem" Header="Řazení společností" IsCheckable="True" Click="OwnSortCompaniesMenuItem_Click">
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="Ostatní">
+                    <MenuItem Header="Manuál" Click="ManualMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Icons/baseline_help_black_18dp.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+            </Menu>
+        </DockPanel>
+
+        <!--Title books summary and their couunt-->
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,5">
+            <TextBlock Text="Seznam knih" FontSize="14" FontFamily="Verdana" FontWeight="Bold"  TextAlignment="Center"/>
+            <TextBlock Text="Počet knih" FontSize="10" FontFamily="Verdana" TextAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,0,1"/>
+            <TextBlock Text="{Binding BooksCount}" FontSize="10" FontFamily="Verdana" TextAlignment="Center" VerticalAlignment="Bottom" Margin="5,0,0,1"/>
+        </StackPanel>
+
+        <!--Searching TextBox-->
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,5">
+            <TextBlock Text="Hledat" FontFamily="Verdana" FontSize="8"/>
+            <TextBox Name="searchTextBox" FontFamily="Verdana" TextChanged="SearchTextBox_TextChanged"/>
+        </StackPanel>
+
+        <!--Search by ComboBox-->
+        <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical" VerticalAlignment="Bottom" Margin="5,0,0,5">
+            <TextBlock Text="Podle" FontFamily="Verdana" FontSize="8"/>
+            <ComboBox Name="searchComboBox" FontFamily="Verdana" FontSize="10" Height="18">
+                <ComboBoxItem IsSelected="True" Content="Titul"/>
+                <ComboBoxItem Content="Autor"/>
+                <ComboBoxItem Content="Edice"/>
+                <ComboBoxItem Content="Žánr"/>
+                <ComboBoxItem Content="Rok vydání"/>
+                <ComboBoxItem Content="Místo vydání"/>
+                <ComboBoxItem Content="Nakladatelství"/>
+                <ComboBoxItem Content="ISBN"/>
+                <ComboBoxItem Content="Počet stran"/>
+                <ComboBoxItem Content="Fakturační kod"/>
+                <ComboBoxItem Content="Společnost"/>
+                <ComboBoxItem Content="Poznámka"/>
+            </ComboBox>
+        </StackPanel>
+
+        <!--Book details title-->
+        <StackPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,5">
+            <TextBlock Text="Podrobnosti o knize" FontFamily="Verdana" FontSize="14" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!--List of books-->
+        <ListView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Name="booksListBox" FontFamily="Verdana" Margin="10,0,0,0" ItemsSource="{Binding SourceCollection}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}">
+                        <GridViewColumnHeader Content="Název" Click="TitleGridViewColumnHeader_Click"/>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Author}">
+                        <GridViewColumnHeader Content="Autor" Click="AuthorGridViewColumnHeader_Click"/>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding EditionName}">
+                        <GridViewColumnHeader Content="Edice" Click="EditionGridViewColumnHeader_Click"/>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding GenreName}">
+                        <GridViewColumnHeader Content="Žánr" Click="GenreGridViewColumnHeader_Click"/>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Note}">
+                        <GridViewColumnHeader Content="Poznámka" Click="NoteGridViewColumnHeader_Click"/>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!--Book details panel-->
+        <Border Grid.Row="2" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" CornerRadius="14" BorderBrush="Gray" Background="LightGray" BorderThickness="1" Padding="8" Margin="0,0,10,0">
+            <StackPanel Margin="10,0,0,0" DataContext="{Binding ElementName=booksListBox,Path=SelectedItem}" IsEnabled="False">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Nazev:" Name="titleBookLabel" FontFamily="Verdana"/>
+                        <TextBlock Text="{Binding Title}" FontFamily="Verdana" FontWeight="Bold" TextWrapping="Wrap" Margin="2,0,10,0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" Margin="0,0,0,0">
+                        <TextBlock Text="Autor:" FontFamily="Verdana"/>
+                        <TextBlock Text="{Binding Author}" FontFamily="Verdana" FontWeight="Bold" TextWrapping="Wrap" Margin="2,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Edice:" FontFamily="Verdana"/>
+                        <TextBlock Text="{Binding EditionName}"  FontFamily="Verdana" FontWeight="Bold" TextWrapping="Wrap" Margin="2,0,10,0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <TextBlock Text="Žánr:" FontFamily="Verdana"/>
+                        <TextBlock Text="{Binding GenreName}" FontFamily="Verdana" FontWeight="Bold" TextWrapping="Wrap" Margin="2,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Rok vydaní: " FontFamily="Verdana"/>
+                        <TextBlock Text="{Binding PublishYear}" FontFamily="Verdana" TextWrapping="Wrap" Margin="2,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <TextBlock Text="Místo vydání:" FontFamily="Verdana"/>
+                        <TextBlock Text="{Binding PublishLocation}" FontFamily="Verdana" TextWrapping="Wrap" Margin="2,0,10,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <TextBlock Text="Nakladatelství:" FontFamily="Verdana"/>
+                    <TextBlock Text="{Binding Publisher}" FontFamily="Verdana" TextWrapping="Wrap" Margin="2,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <TextBlock Text="ISBN:" FontFamily="Verdana"/>
+                    <TextBlock Text="{Binding Isbn}" FontFamily="Verdana" TextWrapping="Wrap" Margin="2,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <TextBlock Text="Počet stran:" FontFamily="Verdana"/>
+                    <TextBlock Text="{Binding PagesNumber}" FontFamily="Verdana" TextWrapping="Wrap" Margin="2,0,0,0"/>
+                </StackPanel>
+
+                <Grid Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Fakturační kod:" FontFamily="Verdana"/>
+                        <TextBlock Text="{Binding BillingCode}" FontFamily="Verdana" TextWrapping="Wrap" Margin="2,0,10,0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <TextBlock Text="Společnost:" FontFamily="Verdana"/>
+                        <TextBlock Text="{Binding CompanyName}" FontFamily="Verdana" TextWrapping="Wrap" Margin="2,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <TextBlock Text="Poznámka:" FontFamily="Verdana"/>
+                    <TextBlock Text="{Binding Note}" FontFamily="Verdana" TextWrapping="Wrap" Margin="2,0,0,0"/>
+                </StackPanel>
+
+
+
+            </StackPanel>
+        </Border>
+
+        <!--Buttons for delete, edit and add current booke book-->
+        <StackPanel Grid.Row="2" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="30" Margin="0,0,0,10">
+            <Button Content="Odstranit" FontFamily="Verdana" Width="70" Height="30" Margin="20,0,10,0" Click="DeleteButton_Click"/>
+            <Button Content="Upravit" FontFamily="Verdana" Width="70" Height="30" Margin="10,0,10,0" Click="EditButton_Click"/>
+            <Button Content="Přidat" FontFamily="Verdana" Width="70" Height="30" Margin="10,0,0,0" Click="AddButton_Click"/>
+
+            <StackPanel Name="upDownStackPanel" Orientation="Vertical" Width="20" Margin="5,0,0,0">
+                <Button Height="15" BorderBrush="Transparent" Background="Transparent" Click="UpButton_Click">
+                    <StackPanel>
+                        <Image Source="/Assets/Icons/baseline_keyboard_arrow_up_black_18dp.png" Height="15"/>
+                    </StackPanel>
+                </Button>
+                <Button Height="15" BorderBrush="Transparent" Background="Transparent" Click="DownButton_Click">
+                    <StackPanel>
+                        <Image Source="/Assets/Icons/baseline_keyboard_arrow_down_black_18dp.png" Height="15"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Vertical" Margin="10,0,0,0">
+            <TextBlock Text="Edice" FontFamily="Verdana" FontSize="8"/>
+            <ComboBox Name="viewEditionComboBox" FontFamily="Verdana" FontSize="10" Height="18"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Vertical" Margin="10,0,0,0">
+            <TextBlock Text="Žánr" FontFamily="Verdana" FontSize="8"/>
+            <ComboBox Name="viewGenreComboBox" FontFamily="Verdana" FontSize="10" Height="18"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="3" Orientation="Vertical" Margin="10,9,0,0">
+            <Button Content="Filtrovat" FontFamily="Verdana" Height="20" Click="FilterButton_Click"/>
+        </StackPanel>
+
+    </Grid>
+
+</Window>
