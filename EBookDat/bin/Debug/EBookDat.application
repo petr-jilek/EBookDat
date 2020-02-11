@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="EBookDat.exe.manifest" size="5266">
+    <dependentAssembly dependencyType="install" codebase="EBookDat.exe.manifest" size="5264">
       <assemblyIdentity name="EBookDat.exe" version="1.0.0.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Sc1x0B4VHGfkXUh9EGT/NdCAFFlC9K38CDWFcJZvfEM=</dsig:DigestValue>
+        <dsig:DigestValue>yCaRUHafBuP7VsJ0Ta/wTHpcCfIiulrXV4gKa2xo8ug=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -1,11 +1,9 @@
 ﻿
 
-FC:\PETR\Programovani\EBookDat\EBookDat\ViewControllers\Czech\AEBook\AddBookWindowCzech.xaml;;
-FC:\PETR\Programovani\EBookDat\EBookDat\ViewControllers\Czech\AEBook\EditBookWindowCzech.xaml;;
-FC:\PETR\Programovani\EBookDat\EBookDat\ViewControllers\English\MainWindowEnglish.xaml;;
-FC:\PETR\Programovani\EBookDat\EBookDat\ViewControllers\Czech\AEGenre\EditGenreWindowCzech.xaml;;
-FC:\PETR\Programovani\EBookDat\EBookDat\ViewControllers\Czech\AEGenre\GenreManagerWindowCzech.xaml;;
-FC:\PETR\Programovani\EBookDat\EBookDat\ViewControllers\Czech\AEEdition\EditEditionWindowCzech.xaml;;
-FC:\PETR\Programovani\EBookDat\EBookDat\ViewControllers\Czech\AEEdition\EditionManagerWindowCzech.xaml;;
-FC:\PETR\Programovani\EBookDat\EBookDat\MainWindow.xaml;;
+FC:\Users\petrj\Source\Repos\EBookDat\EBookDat\View\AddBookWindow.xaml;;
+FC:\Users\petrj\Source\Repos\EBookDat\EBookDat\View\EditBookWindow.xaml;;
+FC:\Users\petrj\Source\Repos\EBookDat\EBookDat\View\EditEGCWindow.xaml;;
+FC:\Users\petrj\Source\Repos\EBookDat\EBookDat\View\EGCManagerWindow.xaml;;
+FC:\Users\petrj\Source\Repos\EBookDat\EBookDat\MainWindow.xaml;;
+FC:\Users\petrj\Source\Repos\EBookDat\EBookDat\View\ManualWindow.xaml;;
 

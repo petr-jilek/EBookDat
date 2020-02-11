@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\petr\Desktop\EBookDat\EBookDat\obj\Debug\
+C:\Users\petrj\Source\Repos\EBookDat\EBookDat\obj\Debug\
 EBookDat
 none
 false
 DEBUG;TRACE
-C:\Users\petr\Desktop\EBookDat\EBookDat\App.xaml
+C:\Users\petrj\Source\Repos\EBookDat\EBookDat\App.xaml
 6-989719624
 
 231734991941
-19-1561536438
+19-845055354
 View\AddBookWindow.xaml;View\EditBookWindow.xaml;View\EditEGCWindow.xaml;View\EGCManagerWindow.xaml;MainWindow.xaml;View\ManualWindow.xaml;
 
 False
