@@ -41,26 +41,23 @@ namespace EBookDat
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(what));
         }
 
-        public void AddBook(string title, string author, string editionName, string genreName, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber, string billingCode, string companyName, string note) {
-            InputCheck.CheckBookInput(title, author, publishYear, publishLocation, publisher, isbn, pagesNumber, billingCode, note);
+        public void AddBook(string title, string author, string editionName, string genreName, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber, string note) {
+            InputCheck.CheckBookInput(title, author, publishYear, publishLocation, publisher, isbn, pagesNumber, note);
             EGC edition = AddEGC(editionName, "edition");
             EGC genre = AddEGC(genreName, "genre");
-            EGC company = AddEGC(companyName, "company");
             if (edition == null) edition = database.egcManager.defaultEditions[0];
             if (genre == null) genre = database.egcManager.defaultGenres[0];
-            if (company == null) company = database.egcManager.defaultCompanies[0];
-            Book book = new Book(title, author, edition, genre, publishYear, publishLocation, publisher, isbn, pagesNumber, billingCode, company, note);
+            Book book = new Book(title, author, edition, genre, publishYear, publishLocation, publisher, isbn, pagesNumber, note);
             books.Add(book);
             DuringAction();
         }
-        public void EditBook(Book book, string title, string author, string editionName, string genreName, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber, string billingCode, string companyName, string note) {
-            InputCheck.CheckBookInput(title, author, publishYear, publishLocation, publisher, isbn, pagesNumber, billingCode, note);
+        public void EditBook(Book book, string title, string author, string editionName, string genreName, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber, string note) {
+            InputCheck.CheckBookInput(title, author, publishYear, publishLocation, publisher, isbn, pagesNumber, note);
             if (string.IsNullOrEmpty(publishYear)) publishYear = "-";
             if (string.IsNullOrEmpty(publishLocation)) publishLocation = "-";
             if (string.IsNullOrEmpty(publisher)) publisher = "-";
             if (string.IsNullOrEmpty(isbn)) isbn = "-";
             if (string.IsNullOrEmpty(pagesNumber)) pagesNumber = "-";
-            if (string.IsNullOrEmpty(billingCode)) billingCode = "-";
             if (string.IsNullOrEmpty(note)) note = "-";
             book.Title = title;
             book.Author = author;
@@ -71,22 +68,18 @@ namespace EBookDat
             book.Publisher = publisher;
             book.Isbn = isbn;
             book.PagesNumber = pagesNumber;
-            book.BillingCode = billingCode;
-            book.company = AddEGC(companyName, "company");
             book.Note = note;
             if (book.edition == null) book.edition = database.egcManager.defaultEditions[0];
             if (book.genre == null) book.genre = database.egcManager.defaultGenres[0];
-            if (book.company == null) book.company = database.egcManager.defaultCompanies[0];
             DuringAction();
         }
         public void DeleteBook(Book book) {
             books.Remove(book);
             DuringAction();
         }
-        public void LoadBook(string title, string author, string editionName, string genreName, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber, string billingCode, string companyName, string note) {
+        public void LoadBook(string title, string author, string editionName, string genreName, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber, string note) {
             EGC edition = AddEGC(editionName, "edition");
             EGC genre = AddEGC(genreName, "genre");
-            EGC company = AddEGC(companyName, "company");
             if (edition == null) {
                 try {
                     InputCheck.CheckEGCInput(editionName);
@@ -105,18 +98,9 @@ namespace EBookDat
                 }
                 catch { genre = database.egcManager.defaultGenres[0]; }
             }
-            if (company == null) {
-                try {
-                    InputCheck.CheckEGCInput(companyName);
-                    EGC newCompany = new EGC(companyName);
-                    database.egcManager.companies.Add(newCompany);
-                    company = newCompany;
-                }
-                catch { company = database.egcManager.defaultCompanies[0]; }
-            }
 
             try {
-                Book book = new Book(title, author, edition, genre, publishYear, publishLocation, publisher, isbn, pagesNumber, billingCode, company, note);
+                Book book = new Book(title, author, edition, genre, publishYear, publishLocation, publisher, isbn, pagesNumber, note);
                 books.Add(book);
             }
             catch { }
@@ -142,16 +126,6 @@ namespace EBookDat
                     foreach (EGC ge in database.egcManager.genres) {
                         if (ge.Name == name)
                             return ge;
-                    }
-                    break;
-                case "company":
-                    foreach (EGC co in database.egcManager.defaultCompanies) {
-                        if (co.Name == name)
-                            return co;
-                    }
-                    foreach (EGC co in database.egcManager.companies) {
-                        if (co.Name == name)
-                            return co;
                     }
                     break;
             }

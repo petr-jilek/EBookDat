@@ -61,7 +61,6 @@ namespace EBookDat
             ownSortBooksMenuItem.IsChecked = database.settings.SortBooks;
             ownSortEditionsMenuItem.IsChecked = database.settings.SortEditions;
             ownSortGenresMenuItem.IsChecked = database.settings.SortGenres;
-            ownSortCompaniesMenuItem.IsChecked = database.settings.SortCompanies;
             upDownStackPanel.Visibility = database.settings.SortBooks ? Visibility.Hidden : Visibility.Visible;
         }
         public void FormateComboBoxes() {
@@ -120,7 +119,6 @@ namespace EBookDat
         #region ManagersMenu
         private void EditEditionsMenuItem_Click(object sender, RoutedEventArgs e) { EGCManagerWindowShow("edition"); }
         private void EditGenresMenuItem_Click(object sender, RoutedEventArgs e) { EGCManagerWindowShow("genre"); }
-        private void EditCompaniesMenuItem_Click(object sender, RoutedEventArgs e) { EGCManagerWindowShow("company"); }
         public void EGCManagerWindowShow(string type) {
             EGCManagerWindow egcManagerWindow = new EGCManagerWindow(database.egcManager, database.settings, type);
             egcManagerWindow.ShowDialog();
@@ -144,12 +142,7 @@ namespace EBookDat
             if (database.settings.SortGenres == true) database.settings.SortGenres = false;
             else database.settings.SortGenres = true;
             database.settings.SaveSettingsToXML();
-        }
-        private void OwnSortCompaniesMenuItem_Click(object sender, RoutedEventArgs e) {
-            if (database.settings.SortCompanies == true) database.settings.SortCompanies = false;
-            else database.settings.SortCompanies = true;
-            database.settings.SaveSettingsToXML();
-        }
+        }     
         #endregion
 
         #region OtherMenu
@@ -299,19 +292,7 @@ namespace EBookDat
                         if (b.PagesNumber.ToLowerInvariant().Contains(searchTextBox.Text.ToLowerInvariant()) && (b.EditionName == EditionName || EditionName == "Vše") && (b.GenreName == GenreName || GenreName == "Vše"))
                             searchBooks.Add(b);
                     }
-                    break;
-                case "Fakturační kod":
-                    foreach (Book b in database.bookManager.books) {
-                        if (b.BillingCode.ToLowerInvariant().Contains(searchTextBox.Text.ToLowerInvariant()) && (b.EditionName == EditionName || EditionName == "Vše") && (b.GenreName == GenreName || GenreName == "Vše"))
-                            searchBooks.Add(b);
-                    }
-                    break;
-                case "Společnost":
-                    foreach (Book b in database.bookManager.books) {
-                        if (b.company.Name.ToLowerInvariant().Contains(searchTextBox.Text.ToLowerInvariant()) && (b.EditionName == EditionName || EditionName == "Vše") && (b.GenreName == GenreName || GenreName == "Vše"))
-                            searchBooks.Add(b);
-                    }
-                    break;
+                    break;              
                 case "Poznámka":
                     foreach (Book b in database.bookManager.books) {
                         if (b.Note.ToLowerInvariant().Contains(searchTextBox.Text.ToLowerInvariant()) && (b.EditionName == EditionName || EditionName == "Vše") && (b.GenreName == GenreName || GenreName == "Vše"))

@@ -34,7 +34,7 @@ namespace EBookDat.View
 
         #region SetComponents
         private void SetComponents() {
-            editBook = new Book(editingBook.Title, editingBook.Author, editingBook.edition, editingBook.genre, editingBook.PublishYear, editingBook.PublishLocation, editingBook.Publisher, editingBook.Isbn, editingBook.PagesNumber, editingBook.BillingCode, editingBook.company, editingBook.Note);
+            editBook = new Book(editingBook.Title, editingBook.Author, editingBook.edition, editingBook.genre, editingBook.PublishYear, editingBook.PublishLocation, editingBook.Publisher, editingBook.Isbn, editingBook.PagesNumber, editingBook.Note);
             AddWKDEvents();
             RenderComboBoxes();
             DataContext = editBook;
@@ -58,11 +58,8 @@ namespace EBookDat.View
             foreach (EGC ed in database.egcManager.editions) editionComboBox.Items.Add(ed.Name);
             foreach (EGC ge in database.egcManager.defaultGenres) genreComboBox.Items.Add(ge.Name);
             foreach (EGC ge in database.egcManager.genres) genreComboBox.Items.Add(ge.Name); ;
-            foreach (EGC co in database.egcManager.defaultCompanies) companyComboBox.Items.Add(co.Name);
-            foreach (EGC co in database.egcManager.companies) companyComboBox.Items.Add(co.Name);
             editionComboBox.SelectedValue = editionComboBox.Items[GetIndexOfBookEGC("edition")];
             genreComboBox.SelectedValue = genreComboBox.Items[GetIndexOfBookEGC("genre")];
-            companyComboBox.SelectedValue = companyComboBox.Items[GetIndexOfBookEGC("company")];
         }
         private int GetIndexOfBookEGC(string type) {
             int together = 0;
@@ -83,14 +80,6 @@ namespace EBookDat.View
                         if (database.egcManager.genres[j].Name == editBook.genre.Name) return together;
                     }
                     return 0;
-                case "company":
-                    for (int i = 0; i < database.egcManager.defaultCompanies.Count; i++, together++) {
-                        if (database.egcManager.defaultCompanies[i].Name == editBook.company.Name) return together;
-                    }
-                    for (int j = 0; j < database.egcManager.companies.Count; j++, together++) {
-                        if (database.egcManager.companies[j].Name == editBook.company.Name) return together;
-                    }
-                    return 0;
             }
             return 0;
         }
@@ -99,7 +88,7 @@ namespace EBookDat.View
         #region EditButton
         private void EditButton_Click(object sender, RoutedEventArgs e) {
             try {
-                database.bookManager.EditBook(editingBook, titleTextBox.Text, authorTextBox.Text, editionComboBox.Text, genreComboBox.Text, publishYearTextBox.Text, publishLocationTextBox.Text, publisherTextBox.Text, isbnTextBox.Text, pagesNumberTextBox.Text, billingCodeTextBox.Text, companyComboBox.Text, noteTextBox.Text);
+                database.bookManager.EditBook(editingBook, titleTextBox.Text, authorTextBox.Text, editionComboBox.Text, genreComboBox.Text, publishYearTextBox.Text, publishLocationTextBox.Text, publisherTextBox.Text, isbnTextBox.Text, pagesNumberTextBox.Text, noteTextBox.Text);
                 Close();
             }
             catch (AuthException aEx) {

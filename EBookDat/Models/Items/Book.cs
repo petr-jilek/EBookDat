@@ -23,14 +23,10 @@ namespace EBookDat
         public string PublishLocation { get; set; }
         public string Isbn { get; set; }
         public string PagesNumber { get; set; }
-        public string BillingCode { get; set; }
-
-        public EGC company;
-        public string CompanyName { get => company.Name; set { } }
 
         public string Note { get; set; }
 
-        public Book(string title, string author, EGC edition, EGC genre, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber, string billingCode, EGC company, string note) {
+        public Book(string title, string author, EGC edition, EGC genre, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber,string note) {
             Title = title;
             Author = author;
             this.edition = edition;
@@ -39,9 +35,7 @@ namespace EBookDat
             Publisher = publisher;
             PublishLocation = publishLocation;
             Isbn = isbn;
-            PagesNumber = pagesNumber;
-            BillingCode = billingCode;
-            this.company = company;
+            PagesNumber = pagesNumber;   
             Note = note;
             if (string.IsNullOrEmpty(Title)) Title = "-";
             if (string.IsNullOrEmpty(Author)) Author = "-";
@@ -49,8 +43,7 @@ namespace EBookDat
             if (string.IsNullOrEmpty(Publisher)) Publisher = "-";
             if (string.IsNullOrEmpty(PublishLocation)) PublishLocation = "-";
             if (string.IsNullOrEmpty(Isbn)) Isbn = "-";
-            if (string.IsNullOrEmpty(PagesNumber)) PagesNumber = "-";
-            if (string.IsNullOrEmpty(BillingCode)) BillingCode = "-";
+            if (string.IsNullOrEmpty(PagesNumber)) PagesNumber = "-";        
             if (string.IsNullOrEmpty(Note)) Note = "-";
         }
 

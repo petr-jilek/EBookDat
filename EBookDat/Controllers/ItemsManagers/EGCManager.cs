@@ -22,11 +22,7 @@ namespace EBookDat.Controllers.ItemsManagers
 
         public EGCcollection defaultGenres = new EGCcollection(true);
         public EGCcollection genres = new EGCcollection();
-        public int GenresCount { get => genres.Count; set { } }
-
-        public EGCcollection defaultCompanies = new EGCcollection(true);
-        public EGCcollection companies = new EGCcollection();
-        public int CompaniesCount { get => companies.Count; set { } }
+        public int GenresCount { get => genres.Count; set { } }   
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler Action;
@@ -56,17 +52,7 @@ namespace EBookDat.Controllers.ItemsManagers
                     }
                     Action?.Invoke(this, EventArgs.Empty);
                     MakeChange("GenresCount");
-                    break;
-                case "company":
-                    if (database.settings.SortCompanies) {
-                        if (database.settings.SortUpCompanies)
-                            companies.SortByName(true);
-                        else
-                            companies.SortByName(false);
-                    }
-                    Action?.Invoke(this, EventArgs.Empty);
-                    MakeChange("CompaniesCount");
-                    break;
+                    break;               
             }
         }
 
@@ -83,10 +69,7 @@ namespace EBookDat.Controllers.ItemsManagers
                     break;
                 case "genre":
                     genres.Add(new EGC(name));
-                    break;
-                case "company":
-                    companies.Add(new EGC(name));
-                    break;
+                    break;                
             }
             DuringAction(type);
         }
@@ -112,13 +95,7 @@ namespace EBookDat.Controllers.ItemsManagers
                     foreach (Book b in database.bookManager.books) {
                         if (b.genre == egc) b.genre = defaultGenres[0];
                     }
-                    break;
-                case "company":
-                    companies.Remove(egc);
-                    foreach (Book b in database.bookManager.books) {
-                        if (b.company == egc) b.company = defaultCompanies[0];
-                    }
-                    break;
+                    break;              
             }
             database.bookManager.DuringAction();
             DuringAction(type);
@@ -133,10 +110,7 @@ namespace EBookDat.Controllers.ItemsManagers
                         break;
                     case "genre":
                         genres.Add(new EGC(name));
-                        break;
-                    case "company":
-                        companies.Add(new EGC(name));
-                        break;
+                        break;                   
                 }
             }
             catch { }
@@ -159,15 +133,7 @@ namespace EBookDat.Controllers.ItemsManagers
                     foreach (EGC ge in genres) {
                         if (ge.Name == name) throw new AuthException(AuthException.EList.IsExist, "Žánr");
                     }
-                    break;
-                case "company":
-                    foreach (EGC co in defaultCompanies) {
-                        if (co.Name == name) throw new AuthException(AuthException.EList.IsExist, "Společnost");
-                    }
-                    foreach (EGC co in companies) {
-                        if (co.Name == name) throw new AuthException(AuthException.EList.IsExist, "Společnost");
-                    }
-                    break;
+                    break;              
             }
         }
 

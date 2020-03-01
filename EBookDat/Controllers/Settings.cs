@@ -18,23 +18,19 @@ namespace EBookDat
 
         public bool SortUpEditions { get; set; }
         public bool SortUpGenres { get; set; }
-        public bool SortUpCompanies { get; set; }
 
         public bool SortBooks { get; set; }
         public bool SortEditions { get; set; }
         public bool SortGenres { get; set; }
-        public bool SortCompanies { get; set; }
 
         public Settings() {
             SortBy = "Title";
             SortUp = true;
             SortUpEditions = true;
             SortUpGenres = true;
-            SortUpCompanies = true;
             SortBooks = true;
             SortEditions = true;
             SortGenres = true;
-            SortCompanies = true;
         }
 
         public void DuringAction() {
@@ -53,11 +49,9 @@ namespace EBookDat
                     xw.WriteElementString("sortUp", SortUp.ToString());
                     xw.WriteElementString("sortUpEditions", SortUpEditions.ToString());
                     xw.WriteElementString("sortUpGenres", SortUpGenres.ToString());
-                    xw.WriteElementString("sortUpCompanies", SortUpCompanies.ToString());
                     xw.WriteElementString("sortBooks", SortBooks.ToString());
                     xw.WriteElementString("sortEditions", SortEditions.ToString());
                     xw.WriteElementString("sortGenres", SortGenres.ToString());
-                    xw.WriteElementString("sortCompanies", SortCompanies.ToString());
                     xw.WriteEndElement();
                     xw.WriteEndElement();
                     xw.WriteEndDocument();
@@ -82,27 +76,21 @@ namespace EBookDat
                             string sortUp = edition.GetElementsByTagName("sortUp")[0].InnerText;
                             string sortUpEditions = edition.GetElementsByTagName("sortUpEditions")[0].InnerText;
                             string sortUpGenres = edition.GetElementsByTagName("sortUpGenres")[0].InnerText;
-                            string sortUpCompanies = edition.GetElementsByTagName("sortUpCompanies")[0].InnerText;
                             string sortBooks = edition.GetElementsByTagName("sortBooks")[0].InnerText;
                             string sortEditions = edition.GetElementsByTagName("sortEditions")[0].InnerText;
                             string sortGenres = edition.GetElementsByTagName("sortGenres")[0].InnerText;
-                            string sortCompanies = edition.GetElementsByTagName("sortCompanies")[0].InnerText;
                             if (sortUp == "False")
                                 SortUp = false;
                             if (sortUpEditions == "False")
                                 SortUpEditions = false;
                             if (sortUpGenres == "False")
-                                SortUpGenres = false;
-                            if (sortUpCompanies == "False")
-                                SortUpCompanies = false;
+                                SortUpGenres = false;                        
                             if (sortBooks == "False")
                                 SortBooks = false;
                             if (sortEditions == "False")
                                 SortEditions = false;
                             if (sortGenres == "False")
                                 SortGenres = false;
-                            if (sortCompanies == "False")
-                                SortCompanies = false;
                             return;
                         }
                     }

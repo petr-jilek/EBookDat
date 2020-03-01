@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EBookDat.View"
         mc:Ignorable="d"
-        Title="AddBookWindow" Height="500" Width="500">
+        Title="AddBookWindow" Height="450" Width="500">
 
     <Grid Margin="10">
 
@@ -14,7 +14,6 @@
             <RowDefinition Height="110"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="134"/>
-            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -80,16 +79,6 @@
         <!--Search book by ISBN button-->
         <StackPanel Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <Button Content="Hledat" Width="100" Height="22" FontFamily="Verdana" HorizontalAlignment="Right" Margin="0,0,0,4" Click="AddIsbnButton_Click"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical">
-            <TextBlock Text="Fakturační kod" FontFamily="Verdana" Margin="0,8,10,0"/>
-            <TextBox Name="billingNumberTextBox" Margin="0,4,10,0"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="4" Grid.Column="3" Orientation="Vertical">
-            <TextBlock Text="Společnost:" FontFamily="Verdana" Margin="6,8,0,0"/>
-            <ComboBox Name="companyComboBox" FontFamily="Verdana" Margin="6,3,0,0"/>
         </StackPanel>
 
         <!--Add button-->

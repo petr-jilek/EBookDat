@@ -27,11 +27,11 @@ namespace EBookDat
                 System.IO.Stream fileStream = saveExcelDialog.OpenFile();
                 try {
                     using (StreamWriter sw = new StreamWriter(fileStream, Encoding.UTF8)) {
-                        string[] topValues = { "Název", "Autor", "Edice", "Žánr", "Rok vydání", "Nakladatelství", "Místo vydání", "ISBN", "Počet stran", "Fakturační kod", "Společnost", "Poznámka" };
+                        string[] topValues = { "Název", "Autor", "Edice", "Žánr", "Rok vydání", "Nakladatelství", "Místo vydání", "ISBN", "Počet stran", "Poznámka" };
                         string topRow = String.Join(";", topValues);
                         sw.WriteLine(topRow);
                         foreach (Book b in database.bookManager.books) {
-                            string[] sValues = { b.Title, b.Author, b.edition.Name, b.genre.Name, b.PublishYear, b.PublishLocation, b.Publisher, b.Isbn, b.PagesNumber, b.BillingCode, b.CompanyName, b.Note };
+                            string[] sValues = { b.Title, b.Author, b.edition.Name, b.genre.Name, b.PublishYear, b.PublishLocation, b.Publisher, b.Isbn, b.PagesNumber, b.Note };
                             string row = String.Join(";", sValues);
                             sw.WriteLine(row);
                         }
@@ -72,10 +72,8 @@ namespace EBookDat
                             string publisher = splited[6];
                             string isbn = splited[7];
                             string pagesNumber = splited[8];
-                            string billingCode = splited[9];
-                            string companyName = splited[10];
-                            string note = splited[11];
-                            database.bookManager.LoadBook(title, author, editionName, genreName, publishYear, publishLocation, publisher, isbn, pagesNumber, billingCode, companyName, note);
+                            string note = splited[9];
+                            database.bookManager.LoadBook(title, author, editionName, genreName, publishYear, publishLocation, publisher, isbn, pagesNumber, note);
                         }
                         database.bookManager.DuringAction();
                     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EBookDat.View"
         mc:Ignorable="d"
-        Title="EditBookWindow" Height="500" Width="500">
+        Title="EditBookWindow" Height="450" Width="500">
     <Grid Margin="10">
 
         <!--Row and Column definition-->
@@ -13,7 +13,6 @@
             <RowDefinition Height="110"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="190"/>
-            <RowDefinition Height="50"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -69,16 +68,6 @@
 
             <TextBlock Text="Poznámka" FontFamily="Verdana" Margin="10,8,0,0"/>
             <TextBox Name="noteTextBox" Text="{Binding Note}" Height="105" TextWrapping="Wrap" Margin="10,4,0,0"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical">
-            <TextBlock Text="Fakturační kod" FontFamily="Verdana" Margin="0,8,10,0"/>
-            <TextBox Name="billingCodeTextBox" Text="{Binding BillingCode}" Margin="0,4,10,0"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Vertical">
-            <TextBlock Text="Společnost" FontFamily="Verdana" Margin="6,8,0,0"/>
-            <ComboBox Name="companyComboBox" FontFamily="Verdana" Margin="6,3,0,0"/>
         </StackPanel>
 
         <!--Add button-->

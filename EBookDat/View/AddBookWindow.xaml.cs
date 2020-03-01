@@ -57,18 +57,15 @@ namespace EBookDat.View
             foreach (EGC ed in database.egcManager.editions) editionComboBox.Items.Add(ed.Name);
             foreach (EGC ge in database.egcManager.defaultGenres) genreComboBox.Items.Add(ge.Name);
             foreach (EGC ge in database.egcManager.genres) genreComboBox.Items.Add(ge.Name); ;
-            foreach (EGC co in database.egcManager.defaultCompanies) companyComboBox.Items.Add(co.Name);
-            foreach (EGC co in database.egcManager.companies) companyComboBox.Items.Add(co.Name);
             editionComboBox.SelectedValue = editionComboBox.Items[0];
             genreComboBox.SelectedValue = genreComboBox.Items[0];
-            companyComboBox.SelectedValue = companyComboBox.Items[0];
         }
         #endregion
 
         #region AddButton
         private void AddButton_Click(object sender, RoutedEventArgs e) {
             try {
-                database.bookManager.AddBook(titleTextBox.Text, authorTextBox.Text, editionComboBox.Text, genreComboBox.Text, publishYearTextBox.Text, publishLocationTextBox.Text, publisherTextBox.Text, isbnTextBox.Text, pagesNumberTextBox.Text, billingNumberTextBox.Text, companyComboBox.Text, noteTextBox.Text);
+                database.bookManager.AddBook(titleTextBox.Text, authorTextBox.Text, editionComboBox.Text, genreComboBox.Text, publishYearTextBox.Text, publishLocationTextBox.Text, publisherTextBox.Text, isbnTextBox.Text, pagesNumberTextBox.Text, noteTextBox.Text);
                 Close();
             }
             catch (AuthException aEx) {

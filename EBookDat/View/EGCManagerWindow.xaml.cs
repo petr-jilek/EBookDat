@@ -52,16 +52,6 @@ namespace EBookDat.View
                         Mode = BindingMode.TwoWay
                     });
                     break;
-                case "company":
-                    upDownStackPanel.Visibility = settings.SortCompanies ? Visibility.Hidden : Visibility.Visible;
-                    Title = "Správce společností";
-                    mainTitle.Text = "Seznam společností";
-                    countTitle.Text = "Počet spol:";
-                    countVariableText.SetBinding(TextBlock.TextProperty, new Binding("CompaniesCount") {
-                        Source = egcManager,
-                        Mode = BindingMode.TwoWay
-                    });
-                    break;
             }
             egcManager.DuringAction(type);
         }
@@ -110,12 +100,6 @@ namespace EBookDat.View
                         else if (settings.SortUpGenres == false) settings.SortUpGenres = true;
                     }
                     break;
-                case "company":
-                    if (settings.SortCompanies == true) {
-                        if (settings.SortUpCompanies == true) settings.SortUpCompanies = false;
-                        else if (settings.SortUpCompanies == false) settings.SortUpCompanies = true;
-                    }
-                    break;
             }
             settings.SaveSettingsToXML();
             egcManager.DuringAction(type);
@@ -139,12 +123,7 @@ namespace EBookDat.View
                     foreach (EGC ge in egcManager.genres) {
                         if (ge.Name.ToLowerInvariant().Contains(searchTextBox.Text.ToLowerInvariant())) egcListBox.Items.Add(ge);
                     }
-                    break;
-                case "company":
-                    foreach (EGC co in egcManager.companies) {
-                        if (co.Name.ToLowerInvariant().Contains(searchTextBox.Text.ToLowerInvariant())) egcListBox.Items.Add(co);
-                    }
-                    break;
+                    break;             
             }
         }
         #endregion
@@ -218,26 +197,7 @@ namespace EBookDat.View
                             egcListBox.SelectedIndex = index - 1;
                         }
                     }
-                    break;
-                case "company":
-                    if (settings.SortCompanies == false) {
-                        if (egcListBox.SelectedItem != null) {
-                            int index = egcListBox.SelectedIndex;
-                            if (index == 0)
-                                return;
-                            EGC buffer = (EGC)egcListBox.SelectedItem;
-                            for (int i = 1; i < egcManager.companies.Count; i++) {
-                                if (buffer == egcManager.companies[i]) {
-                                    egcManager.companies[i] = egcManager.companies[i - 1];
-                                    egcManager.companies[i - 1] = buffer;
-                                    break;
-                                }
-                            }
-                            egcManager.DuringAction("company");
-                            egcListBox.SelectedIndex = index - 1;
-                        }
-                    }
-                    break;
+                    break;           
             }
         }
         private void DownButton_Click(object sender, RoutedEventArgs e) {
@@ -279,26 +239,7 @@ namespace EBookDat.View
                             egcListBox.SelectedIndex = index + 1;
                         }
                     }
-                    break;
-                case "company":
-                    if (settings.SortCompanies == false) {
-                        if (egcListBox.SelectedItem != null) {
-                            int index = egcListBox.SelectedIndex;
-                            if (index == egcManager.editions.Count - 1)
-                                return;
-                            EGC buffer = (EGC)egcListBox.SelectedItem;
-                            for (int i = 0; i < egcManager.companies.Count - 1; i++) {
-                                if (buffer == egcManager.companies[i]) {
-                                    egcManager.companies[i] = egcManager.companies[i + 1];
-                                    egcManager.companies[i + 1] = buffer;
-                                    break;
-                                }
-                            }
-                            egcManager.DuringAction("companies");
-                            egcListBox.SelectedIndex = index + 1;
-                        }
-                    }
-                    break;
+                    break;              
             }
         }
         #endregion

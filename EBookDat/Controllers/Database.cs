@@ -34,7 +34,6 @@ namespace EBookDat
         public void SaveAllToXML() {
             appDataFileManager.SaveEditionsToXML();
             appDataFileManager.SaveGenresToXML();
-            appDataFileManager.SaveCompaniesToXML();
             appDataFileManager.SaveBooksToXML();
             settings.SaveSettingsToXML();
             clone.MakeClone();
@@ -43,7 +42,6 @@ namespace EBookDat
         public void LoadAllFromXML() {
             appDataFileManager.LoadEditionsFromXML();
             appDataFileManager.LoadGenresFromXML();
-            appDataFileManager.LoadCompaniesFromXML();
             appDataFileManager.LoadBooksFromXML();
             settings.LoadSettingsFromXML();
         }
@@ -51,13 +49,11 @@ namespace EBookDat
         public void ClearDatabase() {
             egcManager.editions.Clear();
             egcManager.genres.Clear();
-            egcManager.companies.Clear();
             bookManager.books.Clear();
             settings = new Settings();
             bookManager.DuringAction();
             egcManager.DuringAction("edition");
             egcManager.DuringAction("genre");
-            egcManager.DuringAction("company");
         }
 
     }

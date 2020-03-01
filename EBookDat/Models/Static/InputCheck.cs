@@ -32,7 +32,7 @@ namespace EBookDat
 
         }
 
-        public static void CheckBookInput(string title, string author, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber, string billingCode, string note) {
+        public static void CheckBookInput(string title, string author, string publishYear, string publishLocation, string publisher, string isbn, string pagesNumber, string note) {
             InputCheck.CheckFieldMain(title, true, false, false, "Titul");
             InputCheck.CheckFieldMain(author, true, false, false, "Autor");
 
@@ -42,7 +42,6 @@ namespace EBookDat
             InputCheck.CheckFieldMain(publishLocation, false, false, false, "Místo vydání");
             InputCheck.CheckFieldMain(publisher, false, false, false, "Nakladatelství");
             InputCheck.CheckFieldMain(isbn, false, false, false, "Isbn");
-            InputCheck.CheckFieldMain(billingCode, false, false, false, "Fakturační kod");
 
             InputCheck.CheckFieldMain(note, false, false, true, "Poznámka");
 
