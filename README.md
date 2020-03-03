@@ -1,10 +1,10 @@
 # EBookDat
 
-#Info
+## Info
 
 EBookDat is free opensource book database.
 
-#Used
+## Used
 
 WPF (Windows Presentation Foundation)
 Language: C#
